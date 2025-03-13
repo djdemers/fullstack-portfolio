@@ -1,30 +1,33 @@
 import React from "react";
-import "../styles/App.css";
+import "../styles/About.css";
+import profilePic from "../assets/avatar.jpg";
 
 function About() {
-    return(
-        <div className="about">
-            <header>
-                <h1>Hello, I'm David DeMers 👋</h1>
-                <p className="subtitle">
-                    Software Engineer Student at Arizona State University.
-                </p>
-            </header>
+    return (
+        <section className="about-section">
+            <div className="about-container">
+                {/* Profile Image */}
+                <img src={profilePic} alt="Profile" className="profile-pic" />
 
-            <section className="about">
-                <h2>About Me</h2>
-                <p>
-                    Welcome to my portfolio! I have experience in JavaScript (React, Node.js), Java (Spring Boot), and
-                    Python (Flask).
-                    I enjoy building scalable applications, solving complex problems, and learning new technologies.
+                {/* Bio Section */}
+                <h2>Hi, I'm David DeMers 👋</h2>
+                <p className="bio">
+                    I'm a software engineer student at Arizona State University.
+                    I enjoy building modern applications, tackling complex problems, and continuously learning new technologies.
                 </p>
-            </section>
 
-            <footer>
-                <p>© 2025 [David DeMers] | <a href="https://github.com/yourgithub">GitHub</a> | <a
-                    href="https://www.linkedin.com/in/yourlinkedin">LinkedIn</a></p>
-            </footer>
-        </div>
+                {/* Why Me Section */}
+                <div className="why-me">
+                    <h3>Why Work With Me?</h3>
+                    <ul>
+                        <li>🚀 Strong problem-solving skills & algorithmic thinking</li>
+                        <li>🛠️ Experience with frontend & backend technologies</li>
+                        <li>🌎 Passionate about scalable and efficient software</li>
+                        <li>💡 Curious by nature with a growth mindset</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     );
 }
 
