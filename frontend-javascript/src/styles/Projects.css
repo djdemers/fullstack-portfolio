@@ -8,32 +8,31 @@
     width: 100vw; /* Full width */
     background: linear-gradient(135deg, #6e8efb, #a777e3); /* Gradient background */
     color: white;
-    padding: 260px 20px; /* Responsive padding */
+    padding: 0 20px 40px; /* Adjusted top padding */
 }
 
 /* Title styling */
 .projects-title {
     font-size: 2.5rem;
     font-weight: bold;
-    margin-bottom: 20px;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 60px;
 }
 
 /* Grid layout */
 .projects-container {
     width: 90%;
-    padding: 40px;
+    //padding: 40px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
     max-width: 800px;
-    margin: auto;
 }
 
 /* Project card styling */
 .project-card {
     background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
+    //padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
