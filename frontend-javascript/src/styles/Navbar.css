@@ -1,11 +1,14 @@
 .navbar {
     width: 100%;
     padding: 1rem;
+    background-color: #121212; /* Dark background */
+    transition: background-color 0.3s ease-in-out;
 }
 
 .navbar-brand {
     font-size: 1.5rem;
     font-weight: bold;
+    transition: color 0.3s ease-in-out;
 }
 
 .navbar-toggler {
@@ -21,6 +24,26 @@
 .nav-link {
     font-size: 1.2rem;
     margin-right: 15px;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Underline Animation */
+.nav-link::after {
+    content: "";
+    display: block;
+    width: 0%;
+    height: 2px;
+    background-color: #61dafb;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: #61dafb;
 }
 
 /* Mobile adjustments */
