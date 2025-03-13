@@ -1,0 +1,68 @@
+.projects-section {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh; /* Ensures full screen height */
+    width: 100vw; /* Full width */
+    background: linear-gradient(135deg, #6e8efb, #a777e3); /* Gradient background */
+    color: white;
+    padding: 260px 20px; /* Responsive padding */
+}
+
+.projects-container {
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+.tech-stack {
+    margin: 10px 0;
+}
+
+.tech {
+    display: inline-block;
+    background: #61dafb;
+    color: #121212;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 0.9rem;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #61dafb;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.project-link:hover {
+    color: #74e4ff;
+}
+
+.private-note {
+    display: inline-block;
+    color: white;
+    font-style: italic;
+    font-weight: bold;
+    margin-top: 10px;
+}
