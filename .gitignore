@@ -10,6 +10,9 @@ frontend-javascript/dist/
 frontend-javascript/build/
 frontend-javascript/.pnp/
 frontend-javascript/.pnp.js
+frontend-javascript/public/  # Ignore generated public assets
+frontend-javascript/package-lock.json  # Lock file should not be pushed
+frontend-javascript/eslint.config.js  # Auto-generated ESLint config
 
 # Java (Spring Boot)
 backend-java/target/
@@ -19,22 +22,28 @@ backend-java/.mvn/
 # Python (Flask)
 backend-python/__pycache__/
 backend-python/.venv/
+backend-python/.pytest_cache/
 
 # Testing & Coverage
 /coverage/
+/frontend-javascript/coverage/
 
 # Production Builds
 /frontend-javascript/build/
 /frontend-javascript/dist/
 
-# Misc
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Miscellaneous
 .DS_Store
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+.vscode/  # VS Code settings (optional)
+
 
