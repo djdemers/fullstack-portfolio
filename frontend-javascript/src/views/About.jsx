@@ -6,13 +6,14 @@ function About() {
         <section className="about-section">
             <div className="about-container">
                 {/* Profile Image */}
-                <img src="/avatar.jpg" alt="Profile" className="profile-pic" />
+                <img src={`${import.meta.env.BASE_URL}avatar.jpg`} alt="Profile Avatar" className="profile-pic"/>
 
                 {/* Bio Section */}
                 <h2>Hi, I'm David DeMers 👋</h2>
                 <p className="bio">
                     I'm a software engineer student at Arizona State University.
-                    I enjoy building modern applications, tackling complex problems, and continuously learning new technologies.
+                    I enjoy building modern applications, tackling complex problems, and continuously learning new
+                    technologies.
                 </p>
 
                 {/* Why Me Section */}
