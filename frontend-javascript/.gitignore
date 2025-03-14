@@ -22,3 +22,45 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# IntelliJ IDEA / JetBrains
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Node.js (Vite & React)
+frontend-javascript/node_modules/
+frontend-javascript/dist/
+frontend-javascript/build/
+frontend-javascript/.pnp/
+frontend-javascript/.pnp.js
+frontend-javascript/public/  # Ignore generated public assets
+frontend-javascript/package-lock.json  # Lock file should not be pushed
+frontend-javascript/eslint.config.js  # Auto-generated ESLint config
+
+# Java (Spring Boot)
+backend-java/target/
+backend-java/.idea/
+backend-java/.mvn/
+
+# Python (Flask)
+backend-python/__pycache__/
+backend-python/.venv/
+backend-python/.pytest_cache/
+
+# Testing & Coverage
+/coverage/
+/frontend-javascript/coverage/
+
+# Production Builds
+/frontend-javascript/build/
+/frontend-javascript/dist/
+
+# Miscellaneous
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.vscode/  # VS Code settings (optional)
