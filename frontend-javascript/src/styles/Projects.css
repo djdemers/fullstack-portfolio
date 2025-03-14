@@ -6,8 +6,8 @@
     text-align: center;
     min-height: 100vh; /* Ensures full screen height */
     width: 100vw; /* Full width */
-    background: linear-gradient(135deg, #6e8efb, #a777e3); /* Gradient background */
-    color: white;
+    background: var(--background-color);
+    color: var(--text-color);
     padding: 200px 20px 40px; /* Adjusted top padding */
 }
 
@@ -22,7 +22,6 @@
 /* Grid layout */
 .projects-container {
     width: 90%;
-    //padding: 40px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
@@ -31,10 +30,10 @@
 
 /* Project card styling */
 .project-card {
-    background: rgba(255, 255, 255, 0.1);
-    //padding: 20px;
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    background: var(--card-bg);
+    box-shadow: 0px 10px 25px var(--shadow-color);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     opacity: 0; /* Initially hidden */
     transform: translateY(50px);

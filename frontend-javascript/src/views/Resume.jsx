@@ -1,19 +1,18 @@
 import React from "react";
 import "../styles/Resume.css";
 
-function Resume() {
-    const resumeImage = "/demers_resume_25.png";
-
+function Resume({ darkMode }) {
     return (
         <section className="resume-section">
-            {/* Display Resume as an Image */}
+
+            {/* Dynamically change resume image based on dark mode */}
             <img
-                src={resumeImage}
+                src={darkMode ? "/demers_resume_dm_25.png" : "/demers_resume_25.png"}
                 alt="Resume Preview"
                 className="resume-image"
             />
 
-            {/* Optional Download Button */}
+            {/* Download Button */}
             <a href="/demers_resume_25.pdf" download className="download-btn">
                 📄 Download Resume
             </a>

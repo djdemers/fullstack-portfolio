@@ -1,28 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import "../styles/Navbar.css"; // Ensure you have this file
+import "../styles/Navbar.css";
 
-function Navbar() {
-    const [scrolling, setScrolling] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 50) {
-                setScrolling(true);
-            } else {
-                setScrolling(false);
-            }
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
-
+function Navbar({ toggleDarkMode, darkMode }) {
     return (
-        <nav className={`navbar navbar-expand-lg navbar-dark bg-dark fixed-top ${scrolling ? "scrolled" : ""}`}>
+        <nav
+            className="navbar navbar-expand-lg fixed-top"
+            style={{ backgroundColor: "var(--navbar-bg)", color: "var(--navbar-text-color)" }}
+        >
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">My Portfolio</Link>
 
@@ -40,20 +27,15 @@ function Navbar() {
 
                 <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul className="navbar-nav">
+                        <li className="nav-item"><Link className="nav-link" to="/">About</Link></li>
+                        <li className="nav-item"><Link className="nav-link" to="/projects">Projects</Link></li>
+                        <li className="nav-item"><Link className="nav-link" to="/skills">Skills</Link></li>
+                        <li className="nav-item"><Link className="nav-link" to="/resume">Resume</Link></li>
+                        <li className="nav-item"><Link className="nav-link" to="/contact">Contact</Link></li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/">About</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/projects">Projects</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/skills">Skills</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/resume">Resume</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/contact">Contact</Link>
+                            <button className="dark-mode-toggle" onClick={toggleDarkMode}>
+                                {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
+                            </button>
                         </li>
                     </ul>
                 </div>
