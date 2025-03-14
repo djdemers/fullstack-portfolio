@@ -1,14 +1,14 @@
 .skills-section {
     display: flex;
     flex-direction: column; /* Stack title above container */
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     min-height: 100vh; /* Full screen height */
     width: 100vw; /* Full width */
     text-align: center;
     background: linear-gradient(135deg, #6e8efb, #a777e3); /* Matching background */
     color: white;
-    padding: 30px 20px 40px;
+    padding: 200px 20px 40px; /* Adjusted top padding */
 }
 
 /* Styles for My Skills Title */
