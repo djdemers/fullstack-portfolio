@@ -1,0 +1,22 @@
+# IntelliJ IDEA / JetBrains
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Node.js
+frontend-javascript/node_modules/
+frontend-javascript/dist/
+
+# Java
+backend-java/target/
+backend-java/.idea/
+backend-java/.mvn/
+
+# Python
+backend-python/__pycache__/
+backend-python/.venv/
+
+# General
+.DS_Store
+.env
