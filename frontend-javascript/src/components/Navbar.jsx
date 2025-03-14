@@ -11,7 +11,8 @@ function Navbar({ toggleDarkMode, darkMode }) {
             style={{ backgroundColor: "var(--navbar-bg)", color: "var(--navbar-text-color)" }}
         >
             <div className="container-fluid">
-                <Link className="navbar-brand" to="/">My Portfolio</Link>
+                {/* Replace <Link> with a non-clickable <span> */}
+                <span className="navbar-brand">My Portfolio</span>
 
                 <button
                     className="navbar-toggler"
@@ -45,3 +46,4 @@ function Navbar({ toggleDarkMode, darkMode }) {
 }
 
 export default Navbar;
+
