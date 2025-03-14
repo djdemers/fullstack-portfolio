@@ -4,7 +4,9 @@ import "../styles/About.css";
 function About() {
     return (
         <section className="about-section">
+            <h2 className="about-title">About Me</h2>
             <div className="about-container">
+
                 {/* Profile Image */}
                 <img src={`${import.meta.env.BASE_URL}avatar.jpg`} alt="Profile Avatar" className="profile-pic"/>
 
