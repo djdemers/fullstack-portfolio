@@ -21,10 +21,15 @@ backend-java/target/
 backend-java/.idea/
 backend-java/.mvn/
 
-# Python (Flask)
-backend-python/__pycache__/
-backend-python/.venv/
-backend-python/.pytest_cache/
+# Python (FastAPI)
+backend-python/venv/                 # Virtual environment folder
+backend-python/**/*.pyc              # Compiled Python files
+backend-python/**/__pycache__/       # Cache folders anywhere in backend-python
+backend-python/.pytest_cache/        # Pytest cache
+backend-python/.mypy_cache/          # Optional: MyPy cache
+
+# Python environment files
+backend-python/.env                  # Optional: Environment variables (keep private)
 
 # Testing & Coverage
 /coverage/
