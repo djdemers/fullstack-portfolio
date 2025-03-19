@@ -17,19 +17,36 @@ function Contact() {
     };
 
     // Handle form submission
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = async (e) => {
+    e.preventDefault();
 
-        // Simulating submission (Replace with API call or EmailJS later)
-        console.log("Form submitted:", formData);
-        setSubmitted(true);
+    try {
+        const response = await fetch("http://localhost:8000/contact", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+        });
 
-        // Reset form after submission
-        setTimeout(() => {
-            setSubmitted(false);
-            setFormData({ name: "", email: "", message: "" });
-        }, 3000);
-    };
+        const result = await response.json();
+        console.log("API Response:", result);
+
+        if (response.ok) {
+            setSubmitted(true);
+            // Reset form after submission
+            setTimeout(() => {
+                setSubmitted(false);
+                setFormData({ name: "", email: "", message: "" });
+            }, 3000);
+        } else {
+            alert("❌ Something went wrong. Please try again.");
+        }
+    } catch (error) {
+        console.error("Submission error:", error);
+        alert("⚠️ Network error. Please try again later.");
+    }
+};
 
     return (
         <section className="contact-section">

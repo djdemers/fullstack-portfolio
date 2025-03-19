@@ -8,7 +8,7 @@ This is the **Python backend** for the fullstack portfolio project, built with *
 If not already created:
 ```bash
 python -m venv venv
-source venv\Scripts\activate    # Windows
+source venv/Scripts/activate    # Windows
 deactivate # exit venv
  
 ```
