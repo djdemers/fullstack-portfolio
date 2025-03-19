@@ -15,11 +15,17 @@ fullstack-portfolio/
 │
 │── backend-python/        # Python backend (FastAPI)
 │   ├── app/               # FastAPI application package
-│   │   ├── main.py        # FastAPI app entry point
+│   │   ├── models
+│   │   │   ├── user.py
 │   │   └── routes/        # API route modules
 │   │       ├── __init__.py
+│   │       ├── contact.py
 │   │       └── example.py # Example route
+│   ├── __init__.py
+│   ├── main.py        # FastAPI app entry point
 │   ├── venv/              # Virtual environment (not tracked)
+│   │   └── ... 
+│   ├── README.md
 │   ├── requirements.txt   # Python dependencies
 │
 │── frontend-javascript/   # React frontend (Vite + SWC)
@@ -82,7 +88,6 @@ The **Spring Boot API** provides backend logic and data processing.
 ---
 
 ## **🔹 Backend: Python (FastAPI) In Progress**
-The **Flask API** serves additional backend functionalities.
 
 ### **📌 Setup**
 1. **Navigate to the Python backend directory:**
@@ -92,8 +97,8 @@ The **Flask API** serves additional backend functionalities.
 2. **Create a virtual environment & activate it:**
    ```bash
    python -m venv venv
-   source venv/bin/activate  # macOS/Linux
-   venv\Scripts\activate  # Windows
+   source venv/Scripts/activate
+
    ```
 3. **Install dependencies:**
    ```bash

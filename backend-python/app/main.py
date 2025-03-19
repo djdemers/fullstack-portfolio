@@ -1,20 +1,19 @@
 # app/main.py
 
 from fastapi import FastAPI
-from routes.example import router as example_router  # Import the router from example.py
+from .routes.contact import router as contact_router
+from .config.db import Base, engine
 
-# Create FastAPI app instance
 app = FastAPI()
 
-# Include the example router
-# All routes defined in example_router are now accessible
-app.include_router(example_router)
+# Include routers
+app.include_router(contact_router)
 
-# Optional root route for base URL
+@app.on_event("startup")
+def on_startup():
+    # Create tables
+    Base.metadata.create_all(bind=engine)
+
 @app.get("/")
 async def root():
-    """
-    Root endpoint that returns a simple welcome message.
-    Access at: http://127.0.0.1:8000/
-    """
     return {"message": "Welcome to my FastAPI backend!"}

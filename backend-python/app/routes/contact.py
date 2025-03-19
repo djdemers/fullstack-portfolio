@@ -1,20 +1,32 @@
-# contact.py
-from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel, EmailStr
+# app/routes/contact.py
+
+from fastapi import APIRouter, Depends
+from sqlalchemy.orm import Session
+from app.models.contact import ContactForm, Contact
+from app.config.db import SessionLocal
 
 router = APIRouter()
 
-# Define the structure of incoming contact data
-class ContactForm(BaseModel):
-    name: str
-    email: EmailStr
-    message: str
+# Dependency to get DB session
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
 
-# POST /contact endpoint
 @router.post("/contact")
-async def submit_contact_form(form: ContactForm):
-    # Print/log for now – replace with DB or email later
-    print("Received contact form:", form.model_dump())
+async def submit_contact_form(contact: ContactForm, db: Session = Depends(get_db)):
+    """
+    Handle contact form submission and save to DB.
+    """
+    db_contact = Contact(name=contact.name, email=contact.email, message=contact.message)
+    db.add(db_contact)
+    db.commit()
+    db.refresh(db_contact)
 
-    # Simulate success response
-    return {"message": "Contact form submitted successfully!"}
+    return {
+        "message": "Contact form submitted successfully!",
+        "data": contact
+    }
+
