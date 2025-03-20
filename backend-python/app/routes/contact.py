@@ -1,13 +1,12 @@
-# app/routes/contact.py
-
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from app.models.contact import ContactForm, Contact
 from app.config.db import SessionLocal
 
-router = APIRouter()
+router = APIRouter(prefix="/contact", tags=["Contact"])  # use the router prefix
 
-# Dependency to get DB session
+print("🐍 app/routes/contact.py loaded")
+
 def get_db():
     db = SessionLocal()
     try:
@@ -15,11 +14,10 @@ def get_db():
     finally:
         db.close()
 
-@router.post("/contact")
+@router.post("/")
 async def submit_contact_form(contact: ContactForm, db: Session = Depends(get_db)):
-    """
-    Handle contact form submission and save to DB.
-    """
+    print("🚨 Contact form hit!")
+    print(f"📨 Received contact form: {contact}")
     db_contact = Contact(name=contact.name, email=contact.email, message=contact.message)
     db.add(db_contact)
     db.commit()

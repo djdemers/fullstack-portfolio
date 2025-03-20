@@ -1,27 +1,39 @@
 ## `backend-python/` – FastAPI Backend
 
-This is the **Python backend** for the fullstack portfolio project, built with **FastAPI**. It currently provides a  
+This is the **Python backend** for the fullstack portfolio project, built with **FastAPI**. It provides API endpoints 
+(currently for the contact form) and stores data in a **MySQL database**.
+
 ---
 
-### **Set Up Virtual Environment**
+## ⚙️ Quick Start Guide 
+
+### 1. **Activate Virtual Environment**
 
 If not already created:
 ```bash
 python -m venv venv
-source venv/Scripts/activate    # Windows
-deactivate # exit venv
- 
+```
+
+To activate (Windows):
+```bash
+source venv/Scripts/activate
+```
+
+To exit:
+```bash
+deactivate
 ```
 
 ---
 
-### **Install Dependencies**
+### 2. **Install Dependencies**
 
 ```bash
 pip install -r requirements.txt
 ```
 
-If you don't have a `requirements.txt` yet:
+Don’t have a `requirements.txt` yet?
+
 ```bash
 pip install fastapi uvicorn sqlalchemy pymysql python-dotenv
 pip freeze > requirements.txt
@@ -29,7 +41,7 @@ pip freeze > requirements.txt
 
 ---
 
-### **Configure Environment Variables**
+### 3. **Set Environment Variables**
 
 Create a `.env` file in `backend-python/`:
 
@@ -42,83 +54,96 @@ MYSQL_PORT=3306
 MYSQL_DB=contact_db
 ```
 
----
-
-## Project Structure (Python Backend)
-```plaintext
-backend-python/
-│── app/
-│   ├── config/           # DB setup and config
-│   │   └── db.py
-│   ├── models/           # Pydantic & SQLAlchemy models
-│   │   └── contact.py
-│   ├── routes/           # API endpoints
-│   │   └── contact.py
-│   └── __init__.py
-│── main.py               # FastAPI app entry point
-│── .env                  # Environment variables (not tracked by Git)
-│── requirements.txt      # Python dependencies
-│── venv/                 # Virtual environment
-```
+Make sure the MySQL server is **running** and the database `contact_db` exists.
 
 ---
 
-## How to Run the Server
+### 4. **Run the Server**
 
-### Start FastAPI Server (with hot-reload):
+Start FastAPI (with hot-reload):
 ```bash
 uvicorn app.main:app --reload
 ```
 
-Server will be available at:  
-[http://localhost:8000](http://localhost:8000)
+⚠️ **If port issues / server conflict:**  
+List uvicorn processes:
+```bash
+ps -ef | grep uvicorn
+```
 
-Docs available at:  
-[http://localhost:8000/docs](http://localhost:8000/docs)
+Kill by PID:
+```bash
+kill -9 <PID>
+```
 
 ---
 
-## Current API: Contact Form
+### 5. **Verify the Server is Running**
 
-### POST `/contact`
+- Backend API root: [http://localhost:8000](http://localhost:8000)
+- Swagger Docs: [http://localhost:8000/docs](http://localhost:8000/docs)
 
-Submit contact form data (name, email, message) — currently stores in MySQL database.
+> Check the **contact form route** is listed under “Contact” and shows:  
+`POST /contact/`
 
-#### Example Request (JSON):
+---
+
+## How to Test Contact API
+
+### POST `/contact/`
+
+Submit JSON:
 ```json
 {
-  "name": "xxx",
-  "email": "xxx@example.com",
-  "message": "Hello!."
+  "name": "Test User",
+  "email": "test@example.com",
+  "message": "Hello!"
 }
 ```
 
-#### Example Response:
-```json
-{
-  "message": "Contact form submitted successfully!",
-  "data": {
-    "name": "xxx",
-    "email": "xxx@example.com",
-    "message": "Hello!"
-  }
-}
+Via `curl`:
+```bash
+curl -X POST http://127.0.0.1:8000/contact/ \
+     -H "Content-Type: application/json" \
+     -d '{"name":"Test","email":"test@example.com","message":"Hello!"}'
+```
+
+✅ **Verify**: Should return success message and store in MySQL.
+
+---
+
+## Project Structure
+
+```plaintext
+backend-python/
+│── app/
+│   ├── config/         # DB setup (SQLAlchemy)
+│   │   └── db.py
+│   ├── models/         # Pydantic + SQLAlchemy models
+│   │   └── contact.py
+│   ├── routes/         # API endpoints
+│   │   └── contact.py
+│   └── __init__.py
+│── main.py             # FastAPI app entry
+│── .env                # Env vars (not in Git)
+│── requirements.txt    # Dependencies
+│── venv/               # Virtualenv
 ```
 
 ---
 
 ## Development Notes
 
-- **Run this backend** when developing or testing the frontend contact form.
-- Use **Postman** or **curl** to manually test the API.
-- Make sure **MySQL is running**, and the database specified in `.env` exists.
+- Run this backend **when developing frontend** contact form.
+- Test with **curl**, **Postman**, or directly in **Swagger UI**.
+- Always verify **MySQL** is running before submitting data.
 
 ---
 
 ## Next Steps
 
-- Email integration (send contact form to your inbox).
-- More endpoints (projects, experience, etc.)
-- Unit testing with `pytest`.
-- Deploy backend (Render, Railway, etc.)
+- Integrate **email notifications** (send form submission to inbox).
+- Add more endpoints (projects, resume, skills, etc.).
+- Add **unit tests** (`pytest`).
+- Deploy backend (e.g., Render, Railway).
 
