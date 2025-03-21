@@ -7,24 +7,74 @@
     transition: background-color 0.3s ease-in-out;
 }
 
+/* When navbar expands, push down content */
+.expanded + * {
+    margin-top: 300px;
+}
+
+/* Prevents "My Portfolio" from being clickable */
 .navbar-brand {
     color: var(--navbar-text-color);
     font-size: 1.5rem;
     font-weight: bold;
     transition: color 0.3s ease-in-out;
-    cursor: default;
+    pointer-events: none; /* Disables clicking */
 }
 
-/* Prevent hover effect */
+/* Ensure hover effect is disabled */
 .navbar-brand:hover {
-    color: var(--navbar-text-color); /* Ensures no color change */
+    color: var(--navbar-text-color);
 }
 
+/* Navbar Toggler (Hamburger Menu) */
 .navbar-toggler {
     border: none;
     outline: none;
+    background: none; /* Removes any default background */
+    padding: 15px; /* Removes extra padding that may cause oval effect */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* Hamburger Icon Styling */
+.navbar-toggler-icon {
+    background-image: none !important;
+    width: 30px;
+    height: 3px;
+    background-color: var(--text-color); /* Light mode */
+    transition: background-color 0.3s ease;
+    position: relative;
+}
+
+/* Hamburger Lines */
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: var(--text-color);
+    position: absolute;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-toggler-icon::before {
+    top: -10px;
+}
+
+.navbar-toggler-icon::after {
+    top: 10px;
+}
+
+/* Ensure Correct Dark Mode Colors */
+body.dark-mode .navbar-toggler-icon,
+body.dark-mode .navbar-toggler-icon::before,
+body.dark-mode .navbar-toggler-icon::after {
+    background-color: white; /* Ensures visibility in dark mode */
+}
+
+/* Navbar Links */
 .navbar-nav {
     width: 100%;
     justify-content: flex-end;
@@ -56,6 +106,7 @@
     color: var(--accent-color);
 }
 
+/* Dark Mode Toggle Button */
 .dark-mode-toggle {
     padding: 10px 20px;
     font-size: 1rem;
