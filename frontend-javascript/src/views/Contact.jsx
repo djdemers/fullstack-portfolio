@@ -16,7 +16,7 @@ function Contact() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    // Handle form submission
+
     const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -48,9 +48,10 @@ function Contact() {
     }
 };
 
-    return (
+ return (
         <section className="contact-section">
             <h2 className="contact-title">Contact Me</h2>
+            <div className="dev-status">Work in progress...</div>
             <div className="contact-container">
                 <p>Have a question or want to connect? Send me a message!</p>
 

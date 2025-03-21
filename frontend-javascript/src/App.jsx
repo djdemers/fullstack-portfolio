@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route } from 'react-router-dom'
+import {Routes, Route, Navigate} from 'react-router-dom'
 import Navbar from './components/Navbar'
 import About from './views/About.jsx'
 import Projects from './views/Projects.jsx'
@@ -40,7 +40,8 @@ function App() {
         <>
             <Navbar toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
             <Routes>
-                <Route path="/" element={<About />} />
+                <Route path="/" element={<Navigate replace to="/about" />} /> {/* Redirect "/" to About */}
+                <Route path="/about" element={<About />} />
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/skills" element={<Skills />} />
                 <Route path="/resume" element={<Resume darkMode={darkMode} />} />
